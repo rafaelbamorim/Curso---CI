@@ -21,6 +21,9 @@ jobs:
       with:
         go-version: 1.18
 
+    - name: Hello_World
+      run: docker run hello-world
+
     - name: Build-DB
       run: docker-compose build
 
