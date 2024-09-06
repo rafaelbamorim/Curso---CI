@@ -32,15 +32,8 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
         docker-compose --version
 
-    - name: Create-DB
+    - name: Build-DB
       run: docker-compose up -d
 
-    - name: Wait for DB to be ready
-      run: |
-        until docker exec <db_container_name> mysqladmin ping -h "localhost" --silent; do
-          echo "Waiting for database connection..."
-          sleep 3
-        done
-      
     - name: Run Tests
       run: go test -v main_test.go
