@@ -25,8 +25,8 @@ jobs:
       with:
         go-version: ${{ matrix.go_version }}
 
-    - name: Hello_World
-      run: docker run hello-world
+    - name: Check Docker version
+      run: docker --version
 
     - name: Build-DB
       run: docker-compose build
